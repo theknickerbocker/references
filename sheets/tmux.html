@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>tmux Cheat Sheet</title>
+<style>
+  @page { size: A5 portrait; margin: 7mm 8mm; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #1a1a1a;
+    font-size: 7.5pt;
+    line-height: 1.25;
+  }
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1.5pt solid #1a1a1a;
+    padding-bottom: 2pt;
+    margin-bottom: 5pt;
+  }
+  h1 {
+    font-size: 13pt;
+    margin: 0;
+    letter-spacing: 0.3pt;
+  }
+  header .sub {
+    font-size: 7pt;
+    color: #555;
+  }
+  h2 {
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.5pt;
+    color: #1d4ed8;
+    margin: 5pt 0 2pt;
+    border-bottom: 0.5pt solid #c9c9c9;
+    padding-bottom: 1pt;
+  }
+  h2:first-of-type { margin-top: 0; }
+  .row {
+    display: grid;
+    grid-template-columns: 30mm 1fr;
+    column-gap: 2mm;
+    padding: 0.4pt 0;
+    align-items: baseline;
+  }
+  .row:nth-child(odd) { background: #f5f6f4; }
+  .key { overflow-wrap: break-word; }
+  kbd {
+    font-family: "SF Mono", Consolas, "DejaVu Sans Mono", monospace;
+    font-size: 7pt;
+    font-weight: 600;
+    color: #1d4ed8;
+  }
+  .desc { font-size: 7.2pt; }
+  .cols { columns: 2; column-gap: 5mm; }
+  section { break-inside: avoid; }
+  .prefix {
+    background: #eef2ff;
+    border: 0.5pt solid #c7d2fe;
+    border-radius: 2pt;
+    padding: 2.5pt 4pt;
+    font-size: 7pt;
+    margin-bottom: 5pt;
+  }
+  footer {
+    margin-top: 5pt;
+    font-size: 6pt;
+    color: #888;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>tmux</h1>
+  <div class="sub">cheat sheet &middot; shell command unless noted</div>
+</header>
+
+<div class="prefix"><kbd>prefix</kbd> = <kbd>Ctrl-b</kbd> (default) &mdash; press it, release, then the key below.</div>
+
+<div class="cols">
+
+<section>
+<h2>Sessions</h2>
+<div class="row"><span class="key"><kbd>tmux new -s {name}</kbd></span><span class="desc">new named session</span></div>
+<div class="row"><span class="key"><kbd>tmux ls</kbd></span><span class="desc">list sessions</span></div>
+<div class="row"><span class="key"><kbd>tmux attach -t {name}</kbd></span><span class="desc">attach to session</span></div>
+<div class="row"><span class="key"><kbd>tmux kill-session -t {name}</kbd></span><span class="desc">kill session</span></div>
+<div class="row"><span class="key"><kbd>prefix d</kbd></span><span class="desc">detach from session</span></div>
+<div class="row"><span class="key"><kbd>prefix s</kbd></span><span class="desc">list &amp; switch sessions</span></div>
+<div class="row"><span class="key"><kbd>prefix $</kbd></span><span class="desc">rename session</span></div>
+</section>
+
+<section>
+<h2>Windows</h2>
+<div class="row"><span class="key"><kbd>prefix c</kbd></span><span class="desc">new window</span></div>
+<div class="row"><span class="key"><kbd>prefix ,</kbd></span><span class="desc">rename window</span></div>
+<div class="row"><span class="key"><kbd>prefix n</kbd>/<kbd>p</kbd></span><span class="desc">next / prev window</span></div>
+<div class="row"><span class="key"><kbd>prefix 0-9</kbd></span><span class="desc">select window by number</span></div>
+<div class="row"><span class="key"><kbd>prefix w</kbd></span><span class="desc">list windows (interactive)</span></div>
+<div class="row"><span class="key"><kbd>prefix &amp;</kbd></span><span class="desc">kill window</span></div>
+</section>
+
+<section>
+<h2>Panes</h2>
+<div class="row"><span class="key"><kbd>prefix %</kbd></span><span class="desc">split vertical</span></div>
+<div class="row"><span class="key"><kbd>prefix "</kbd></span><span class="desc">split horizontal</span></div>
+<div class="row"><span class="key"><kbd>prefix o</kbd></span><span class="desc">cycle to next pane</span></div>
+<div class="row"><span class="key"><kbd>prefix &larr;&uarr;&darr;&rarr;</kbd></span><span class="desc">move to pane in dir</span></div>
+<div class="row"><span class="key"><kbd>prefix z</kbd></span><span class="desc">zoom / unzoom pane</span></div>
+<div class="row"><span class="key"><kbd>prefix x</kbd></span><span class="desc">kill pane</span></div>
+<div class="row"><span class="key"><kbd>prefix {</kbd>/<kbd>}</kbd></span><span class="desc">swap pane left / right</span></div>
+<div class="row"><span class="key"><kbd>prefix ^&larr;&uarr;&darr;&rarr;</kbd></span><span class="desc">resize pane</span></div>
+</section>
+
+<section>
+<h2>Copy Mode</h2>
+<div class="row"><span class="key"><kbd>prefix [</kbd></span><span class="desc">enter copy mode</span></div>
+<div class="row"><span class="key"><kbd>Space</kbd></span><span class="desc">start selection</span></div>
+<div class="row"><span class="key"><kbd>Enter</kbd></span><span class="desc">copy selection, exit</span></div>
+<div class="row"><span class="key"><kbd>prefix ]</kbd></span><span class="desc">paste buffer</span></div>
+<div class="row"><span class="key"><kbd>q</kbd></span><span class="desc">quit copy mode</span></div>
+</section>
+
+<section>
+<h2>Misc</h2>
+<div class="row"><span class="key"><kbd>prefix :</kbd></span><span class="desc">command prompt</span></div>
+<div class="row"><span class="key"><kbd>prefix ?</kbd></span><span class="desc">list all keybindings</span></div>
+<div class="row"><span class="key"><kbd>prefix t</kbd></span><span class="desc">show clock</span></div>
+</section>
+
+</div>
+
+<footer>theknickerbocker/references &middot; sheets/tmux</footer>
+
+</body>
+</html>
