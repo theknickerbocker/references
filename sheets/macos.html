@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>macOS Cheat Sheet</title>
+<style>
+  @page { size: A5 portrait; margin: 8mm; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #1d1d1f;
+    font-size: 7.3pt;
+    line-height: 1.25;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 0.75pt solid #d2d2d7;
+    padding-bottom: 4pt;
+    margin-bottom: 5pt;
+  }
+  h1 {
+    font-size: 16pt;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: #1d1d1f;
+  }
+  header .sub {
+    font-size: 6.8pt;
+    font-weight: 500;
+    color: #86868b;
+  }
+  h2 {
+    display: flex;
+    align-items: center;
+    font-size: 6.8pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #86868b;
+    margin: 5pt 0 1.5pt;
+  }
+  h2:first-of-type { margin-top: 0; }
+  .dot {
+    width: 4pt;
+    height: 4pt;
+    border-radius: 50%;
+    background: #5856d6;
+    margin-right: 4pt;
+    flex-shrink: 0;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 25mm 1fr;
+    column-gap: 2.5mm;
+    padding: 1.3pt 0;
+    border-bottom: 0.5pt solid #f0f0f2;
+    align-items: center;
+  }
+  section .row:last-child { border-bottom: none; }
+  .key { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5pt; }
+  .sep { color: #b0b0b5; font-size: 6.3pt; }
+  .chip {
+    display: inline-block;
+    padding: 0.8pt 4pt;
+    background: #f5f5f7;
+    border-radius: 3.5pt;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, Arial, sans-serif;
+    font-size: 6.6pt;
+    font-weight: 600;
+    color: #5856d6;
+    white-space: nowrap;
+  }
+  .desc { font-size: 6.8pt; color: #1d1d1f; }
+  .cols { columns: 2; column-gap: 6mm; }
+  section { break-inside: avoid; }
+  footer {
+    margin-top: 5pt;
+    font-size: 6pt;
+    color: #86868b;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>macOS</h1>
+  <div class="sub">Cheat sheet &middot; System-wide shortcuts</div>
+</header>
+
+<div class="cols">
+
+<section>
+<h2><span class="dot"></span>System</h2>
+<div class="row"><span class="key"><span class="chip">&#8984;Space</span></span><span class="desc">Spotlight search</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8997;Space</span></span><span class="desc">Finder search window</span></div>
+<div class="row"><span class="key"><span class="chip">&#8963;&#8984;Space</span></span><span class="desc">Emoji &amp; symbols picker</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8997;Esc</span></span><span class="desc">Force Quit applications</span></div>
+<div class="row"><span class="key"><span class="chip">&#8963;&#8984;Q</span></span><span class="desc">Lock screen</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8679;Q</span></span><span class="desc">Log out</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;,</span></span><span class="desc">Settings for current app</span></div>
+</section>
+
+<section>
+<h2><span class="dot"></span>Window Management</h2>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8677;</span></span><span class="desc">Switch apps</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;`</span></span><span class="desc">Switch windows in app</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;H</span></span><span class="desc">Hide app</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8997;H</span></span><span class="desc">Hide others</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;M</span></span><span class="desc">Minimize window</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;W</span></span><span class="desc">Close window</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8997;W</span></span><span class="desc">Close all windows</span></div>
+<div class="row"><span class="key"><span class="chip">&#8963;&#8984;F</span></span><span class="desc">Toggle full screen</span></div>
+</section>
+
+<section>
+<h2><span class="dot"></span>Mission Control &amp; Spaces</h2>
+<div class="row"><span class="key"><span class="chip">&#8963;&#8593;</span></span><span class="desc">Mission Control</span></div>
+<div class="row"><span class="key"><span class="chip">&#8963;&#8595;</span></span><span class="desc">App Exposé (current app windows)</span></div>
+<div class="row"><span class="key"><span class="chip">&#8963;&#8592;</span><span class="sep">/</span><span class="chip">&#8963;&#8594;</span></span><span class="desc">Move between Spaces</span></div>
+<div class="row"><span class="key"><span class="chip">fn F11</span></span><span class="desc">Show Desktop</span></div>
+</section>
+
+<section>
+<h2><span class="dot"></span>Screenshots</h2>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8679;3</span></span><span class="desc">Capture whole screen</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8679;4</span></span><span class="desc">Capture selection</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8679;4</span> <span class="chip">Space</span></span><span class="desc">Capture a window</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8679;5</span></span><span class="desc">Screenshot &amp; recording toolbar</span></div>
+</section>
+
+<section>
+<h2><span class="dot"></span>Finder</h2>
+<div class="row"><span class="key"><span class="chip">&#8984;N</span></span><span class="desc">New window</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8679;N</span></span><span class="desc">New folder</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#9003;</span></span><span class="desc">Move to Trash</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8679;&#9003;</span></span><span class="desc">Empty Trash</span></div>
+<div class="row"><span class="key"><span class="chip">Space</span></span><span class="desc">Quick Look selected item</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;I</span></span><span class="desc">Get Info</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8679;.</span></span><span class="desc">Show hidden files</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8679;G</span></span><span class="desc">Go to folder</span></div>
+</section>
+
+<section>
+<h2><span class="dot"></span>Text Editing</h2>
+<div class="row"><span class="key"><span class="chip">&#8984;A</span><span class="sep">/</span><span class="chip">C</span><span class="sep">/</span><span class="chip">V</span><span class="sep">/</span><span class="chip">X</span></span><span class="desc">Select all / copy / paste / cut</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;Z</span><span class="sep">/</span><span class="chip">&#8984;&#8679;Z</span></span><span class="desc">Undo / redo</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8592;</span><span class="sep">/</span><span class="chip">&#8984;&#8594;</span></span><span class="desc">Line start / end</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8593;</span><span class="sep">/</span><span class="chip">&#8984;&#8595;</span></span><span class="desc">Document start / end</span></div>
+<div class="row"><span class="key"><span class="chip">&#8997;&#8592;</span><span class="sep">/</span><span class="chip">&#8997;&#8594;</span></span><span class="desc">Word left / right</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#9003;</span></span><span class="desc">Delete to line start</span></div>
+<div class="row"><span class="key"><span class="chip">&#8997;&#9003;</span></span><span class="desc">Delete word back</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;F</span></span><span class="desc">Find</span></div>
+<div class="row"><span class="key"><span class="chip">&#8984;&#8679;V</span></span><span class="desc">Paste &amp; match style</span></div>
+</section>
+
+</div>
+
+<footer>theknickerbocker/references &middot; sheets/macos</footer>
+
+</body>
+</html>
