@@ -21,7 +21,8 @@ Follow [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0
 
 - The type/scope prefix is required: `type`, optional `(scope)`, optional `!`, then a required `: ` (colon + space).
 - The description must immediately follow that prefix with a short, imperative summary (e.g. `fix(sheets): correct A5 margin overflow`, not `fixed` or `fixes`).
-- An optional longer body may follow, separated from the description by **one blank line**. The body is free-form and may span multiple paragraphs.
+- An optional longer body may follow, separated from the description by **one blank line**. The body may span multiple paragraphs and should summarize the change made in the PR — what changed and why.
+- Never mention that the commit or PR was created or co-authored by Claude (or any other AI tool). Do not add footers or links such as `Co-Authored-By: Claude ...`, `Claude-Session: ...`, or "Generated with Claude Code" — not in the commit message, and not in the PR description.
 - Optional footers follow the body, separated by one blank line. A footer token uses `-` in place of spaces (e.g. `Reviewed-by`), followed by `: ` or ` #`.
 - Breaking changes are marked either both a `!` before the colon (`feat(api)!: ...`) and with a footer:
   ```
