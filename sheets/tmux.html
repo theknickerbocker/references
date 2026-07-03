@@ -4,72 +4,96 @@
 <meta charset="utf-8">
 <title>tmux Cheat Sheet</title>
 <style>
-  @page { size: A5 portrait; margin: 7mm 8mm; }
+  @page { size: A5 portrait; margin: 8mm; }
   * { box-sizing: border-box; }
   html, body {
     margin: 0; padding: 0;
-    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-    color: #1a1a1a;
-    font-size: 7.5pt;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #1d1d1f;
+    font-size: 7.2pt;
     line-height: 1.25;
+    -webkit-font-smoothing: antialiased;
   }
   header {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    border-bottom: 1.5pt solid #1a1a1a;
-    padding-bottom: 2pt;
+    border-bottom: 0.75pt solid #d2d2d7;
+    padding-bottom: 4pt;
     margin-bottom: 5pt;
   }
   h1 {
-    font-size: 13pt;
+    font-size: 16pt;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     margin: 0;
-    letter-spacing: 0.3pt;
+    color: #1d1d1f;
   }
   header .sub {
-    font-size: 7pt;
-    color: #555;
+    font-size: 6.6pt;
+    font-weight: 500;
+    color: #86868b;
   }
   h2 {
-    font-size: 7.5pt;
+    display: flex;
+    align-items: center;
+    font-size: 6.6pt;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5pt;
-    color: #1d4ed8;
-    margin: 5pt 0 2pt;
-    border-bottom: 0.5pt solid #c9c9c9;
-    padding-bottom: 1pt;
+    letter-spacing: 0.07em;
+    color: #86868b;
+    margin: 5pt 0 1.5pt;
   }
   h2:first-of-type { margin-top: 0; }
+  .dot {
+    width: 4pt;
+    height: 4pt;
+    border-radius: 50%;
+    background: #0071e3;
+    margin-right: 4pt;
+    flex-shrink: 0;
+  }
   .row {
     display: grid;
     grid-template-columns: 30mm 1fr;
-    column-gap: 2mm;
-    padding: 0.4pt 0;
-    align-items: baseline;
+    column-gap: 2.5mm;
+    padding: 1.1pt 0;
+    border-bottom: 0.5pt solid #f0f0f2;
+    align-items: center;
   }
-  .row:nth-child(odd) { background: #f5f6f4; }
-  .key { overflow-wrap: break-word; }
-  kbd {
-    font-family: "SF Mono", Consolas, "DejaVu Sans Mono", monospace;
-    font-size: 7pt;
+  section .row:last-child { border-bottom: none; }
+  .key { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5pt; }
+  .sep { color: #b0b0b5; font-size: 6.3pt; }
+  .chip {
+    display: inline-block;
+    padding: 0.8pt 4pt;
+    background: #f5f5f7;
+    border-radius: 3.5pt;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, Arial, sans-serif;
+    font-size: 6.4pt;
     font-weight: 600;
-    color: #1d4ed8;
+    color: #0071e3;
+    white-space: nowrap;
   }
-  .desc { font-size: 7.2pt; }
-  .cols { columns: 2; column-gap: 5mm; }
+  .desc { font-size: 6.6pt; color: #1d1d1f; }
+  .cols { columns: 2; column-gap: 6mm; }
   section { break-inside: avoid; }
   .prefix {
-    background: #eef2ff;
-    border: 0.5pt solid #c7d2fe;
-    border-radius: 2pt;
-    padding: 2.5pt 4pt;
-    font-size: 7pt;
+    display: flex;
+    align-items: center;
+    gap: 4pt;
+    background: #f0f6ff;
+    border-radius: 7pt;
+    padding: 3pt 6pt;
+    font-size: 6.6pt;
+    color: #1d1d1f;
     margin-bottom: 5pt;
   }
+  .prefix .chip { color: #0071e3; }
   footer {
     margin-top: 5pt;
-    font-size: 6pt;
-    color: #888;
+    font-size: 5.8pt;
+    color: #86868b;
     text-align: center;
   }
 </style>
@@ -78,64 +102,64 @@
 
 <header>
   <h1>tmux</h1>
-  <div class="sub">cheat sheet &middot; shell command unless noted</div>
+  <div class="sub">Cheat sheet &middot; Shell command unless noted</div>
 </header>
 
-<div class="prefix"><kbd>prefix</kbd> = <kbd>Ctrl-b</kbd> (default) &mdash; press it, release, then the key below.</div>
+<div class="prefix"><span class="chip">prefix</span> = <span class="chip">Ctrl-b</span> <span>(default) &mdash; press it, release, then the key below.</span></div>
 
 <div class="cols">
 
 <section>
-<h2>Sessions</h2>
-<div class="row"><span class="key"><kbd>tmux new -s {name}</kbd></span><span class="desc">new named session</span></div>
-<div class="row"><span class="key"><kbd>tmux ls</kbd></span><span class="desc">list sessions</span></div>
-<div class="row"><span class="key"><kbd>tmux attach -t {name}</kbd></span><span class="desc">attach to session</span></div>
-<div class="row"><span class="key"><kbd>tmux kill-session -t {name}</kbd></span><span class="desc">kill session</span></div>
-<div class="row"><span class="key"><kbd>prefix d</kbd></span><span class="desc">detach from session</span></div>
-<div class="row"><span class="key"><kbd>prefix s</kbd></span><span class="desc">list &amp; switch sessions</span></div>
-<div class="row"><span class="key"><kbd>prefix $</kbd></span><span class="desc">rename session</span></div>
+<h2><span class="dot"></span>Sessions</h2>
+<div class="row"><span class="key"><span class="chip">tmux new -s {name}</span></span><span class="desc">New named session</span></div>
+<div class="row"><span class="key"><span class="chip">tmux ls</span></span><span class="desc">List sessions</span></div>
+<div class="row"><span class="key"><span class="chip">tmux attach -t {name}</span></span><span class="desc">Attach to session</span></div>
+<div class="row"><span class="key"><span class="chip">tmux kill-session -t {name}</span></span><span class="desc">Kill session</span></div>
+<div class="row"><span class="key"><span class="chip">prefix d</span></span><span class="desc">Detach from session</span></div>
+<div class="row"><span class="key"><span class="chip">prefix s</span></span><span class="desc">List &amp; switch sessions</span></div>
+<div class="row"><span class="key"><span class="chip">prefix $</span></span><span class="desc">Rename session</span></div>
 </section>
 
 <section>
-<h2>Windows</h2>
-<div class="row"><span class="key"><kbd>prefix c</kbd></span><span class="desc">new window</span></div>
-<div class="row"><span class="key"><kbd>prefix ,</kbd></span><span class="desc">rename window</span></div>
-<div class="row"><span class="key"><kbd>prefix n</kbd>/<kbd>p</kbd></span><span class="desc">next / prev window</span></div>
-<div class="row"><span class="key"><kbd>prefix 0-9</kbd></span><span class="desc">select window by number</span></div>
-<div class="row"><span class="key"><kbd>prefix w</kbd></span><span class="desc">list windows (interactive)</span></div>
-<div class="row"><span class="key"><kbd>prefix &amp;</kbd></span><span class="desc">kill window</span></div>
+<h2><span class="dot"></span>Windows</h2>
+<div class="row"><span class="key"><span class="chip">prefix c</span></span><span class="desc">New window</span></div>
+<div class="row"><span class="key"><span class="chip">prefix ,</span></span><span class="desc">Rename window</span></div>
+<div class="row"><span class="key"><span class="chip">prefix n</span><span class="sep">/</span><span class="chip">p</span></span><span class="desc">Next / prev window</span></div>
+<div class="row"><span class="key"><span class="chip">prefix 0-9</span></span><span class="desc">Select window by number</span></div>
+<div class="row"><span class="key"><span class="chip">prefix w</span></span><span class="desc">List windows (interactive)</span></div>
+<div class="row"><span class="key"><span class="chip">prefix &amp;</span></span><span class="desc">Kill window</span></div>
 </section>
 
 <section>
-<h2>Panes</h2>
-<div class="row"><span class="key"><kbd>prefix %</kbd></span><span class="desc">split vertical</span></div>
-<div class="row"><span class="key"><kbd>prefix "</kbd></span><span class="desc">split horizontal</span></div>
-<div class="row"><span class="key"><kbd>prefix o</kbd></span><span class="desc">cycle to next pane</span></div>
-<div class="row"><span class="key"><kbd>prefix &larr;&uarr;&darr;&rarr;</kbd></span><span class="desc">move to pane in dir</span></div>
-<div class="row"><span class="key"><kbd>prefix z</kbd></span><span class="desc">zoom / unzoom pane</span></div>
-<div class="row"><span class="key"><kbd>prefix x</kbd></span><span class="desc">kill pane</span></div>
-<div class="row"><span class="key"><kbd>prefix {</kbd>/<kbd>}</kbd></span><span class="desc">swap pane left / right</span></div>
-<div class="row"><span class="key"><kbd>prefix ^&larr;&uarr;&darr;&rarr;</kbd></span><span class="desc">resize pane</span></div>
+<h2><span class="dot"></span>Panes</h2>
+<div class="row"><span class="key"><span class="chip">prefix %</span></span><span class="desc">Split vertical</span></div>
+<div class="row"><span class="key"><span class="chip">prefix "</span></span><span class="desc">Split horizontal</span></div>
+<div class="row"><span class="key"><span class="chip">prefix o</span></span><span class="desc">Cycle to next pane</span></div>
+<div class="row"><span class="key"><span class="chip">prefix &larr;&uarr;&darr;&rarr;</span></span><span class="desc">Move to pane in dir</span></div>
+<div class="row"><span class="key"><span class="chip">prefix z</span></span><span class="desc">Zoom / unzoom pane</span></div>
+<div class="row"><span class="key"><span class="chip">prefix x</span></span><span class="desc">Kill pane</span></div>
+<div class="row"><span class="key"><span class="chip">prefix {</span><span class="sep">/</span><span class="chip">}</span></span><span class="desc">Swap pane left / right</span></div>
+<div class="row"><span class="key"><span class="chip">prefix ^&larr;&uarr;&darr;&rarr;</span></span><span class="desc">Resize pane</span></div>
 </section>
 
 <section>
-<h2>Copy Mode</h2>
-<div class="row"><span class="key"><kbd>prefix [</kbd></span><span class="desc">enter copy mode</span></div>
-<div class="row"><span class="key"><kbd>&uarr;&darr;</kbd>/<kbd>k j</kbd></span><span class="desc">scroll up / down 1 line</span></div>
-<div class="row"><span class="key"><kbd>^u</kbd>/<kbd>^d</kbd></span><span class="desc">scroll up / down 1/2 page</span></div>
-<div class="row"><span class="key"><kbd>^b</kbd>/<kbd>^f</kbd></span><span class="desc">scroll up / down full page</span></div>
-<div class="row"><span class="key"><kbd>g</kbd>/<kbd>G</kbd></span><span class="desc">top / bottom of history</span></div>
-<div class="row"><span class="key"><kbd>Space</kbd></span><span class="desc">start selection</span></div>
-<div class="row"><span class="key"><kbd>Enter</kbd></span><span class="desc">copy selection, exit</span></div>
-<div class="row"><span class="key"><kbd>prefix ]</kbd></span><span class="desc">paste buffer</span></div>
-<div class="row"><span class="key"><kbd>q</kbd></span><span class="desc">quit copy mode</span></div>
+<h2><span class="dot"></span>Copy Mode</h2>
+<div class="row"><span class="key"><span class="chip">prefix [</span></span><span class="desc">Enter copy mode</span></div>
+<div class="row"><span class="key"><span class="chip">&uarr;&darr;</span><span class="sep">/</span><span class="chip">k j</span></span><span class="desc">Scroll up / down 1 line</span></div>
+<div class="row"><span class="key"><span class="chip">^u</span><span class="sep">/</span><span class="chip">^d</span></span><span class="desc">Scroll up / down 1/2 page</span></div>
+<div class="row"><span class="key"><span class="chip">^b</span><span class="sep">/</span><span class="chip">^f</span></span><span class="desc">Scroll up / down full page</span></div>
+<div class="row"><span class="key"><span class="chip">g</span><span class="sep">/</span><span class="chip">G</span></span><span class="desc">Top / bottom of history</span></div>
+<div class="row"><span class="key"><span class="chip">Space</span></span><span class="desc">Start selection</span></div>
+<div class="row"><span class="key"><span class="chip">Enter</span></span><span class="desc">Copy selection, exit</span></div>
+<div class="row"><span class="key"><span class="chip">prefix ]</span></span><span class="desc">Paste buffer</span></div>
+<div class="row"><span class="key"><span class="chip">q</span></span><span class="desc">Quit copy mode</span></div>
 </section>
 
 <section>
-<h2>Misc</h2>
-<div class="row"><span class="key"><kbd>prefix :</kbd></span><span class="desc">command prompt</span></div>
-<div class="row"><span class="key"><kbd>prefix ?</kbd></span><span class="desc">list all keybindings</span></div>
-<div class="row"><span class="key"><kbd>prefix t</kbd></span><span class="desc">show clock</span></div>
+<h2><span class="dot"></span>Misc</h2>
+<div class="row"><span class="key"><span class="chip">prefix :</span></span><span class="desc">Command prompt</span></div>
+<div class="row"><span class="key"><span class="chip">prefix ?</span></span><span class="desc">List all keybindings</span></div>
+<div class="row"><span class="key"><span class="chip">prefix t</span></span><span class="desc">Show clock</span></div>
 </section>
 
 </div>
