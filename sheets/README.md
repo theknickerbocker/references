@@ -13,3 +13,4 @@ Cheat sheet references. Each sheet is a self-contained, printable A5 page.
 - [`neovim.html`](neovim.html) — Neovim keybindings (modes, movement, editing, search, windows/buffers, marks/macros)
 - [`tmux.html`](tmux.html) — tmux keybindings (sessions, windows, panes, copy mode)
 - [`macos.html`](macos.html) — macOS system-wide shortcuts (system, window management, Mission Control, screenshots, Finder, text editing)
+- [`herdr.html`](herdr.html) — herdr keybindings (essentials, panes, tabs, workspaces, copy mode, prefix-free chords)
