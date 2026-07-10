@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>herdr Cheat Sheet</title>
+<style>
+  @page { size: A5 portrait; margin: 8mm; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #1d1d1f;
+    font-size: 7.2pt;
+    line-height: 1.25;
+    -webkit-font-smoothing: antialiased;
+  }
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 0.75pt solid #d2d2d7;
+    padding-bottom: 4pt;
+    margin-bottom: 5pt;
+  }
+  h1 {
+    font-size: 16pt;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0;
+    color: #1d1d1f;
+  }
+  header .sub {
+    font-size: 6.6pt;
+    font-weight: 500;
+    color: #86868b;
+  }
+  h2 {
+    display: flex;
+    align-items: center;
+    font-size: 6.6pt;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: #86868b;
+    margin: 5pt 0 1.5pt;
+  }
+  h2:first-of-type { margin-top: 0; }
+  .dot {
+    width: 4pt;
+    height: 4pt;
+    border-radius: 50%;
+    background: #6d28d9;
+    margin-right: 4pt;
+    flex-shrink: 0;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 30mm 1fr;
+    column-gap: 2.5mm;
+    padding: 1.1pt 0;
+    border-bottom: 0.5pt solid #f0f0f2;
+    align-items: center;
+  }
+  section .row:last-child { border-bottom: none; }
+  .key { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5pt; }
+  .sep { color: #b0b0b5; font-size: 6.3pt; }
+  .chip {
+    display: inline-block;
+    padding: 0.8pt 4pt;
+    background: #f5f5f7;
+    border-radius: 3.5pt;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, Arial, sans-serif;
+    font-size: 6.4pt;
+    font-weight: 600;
+    color: #6d28d9;
+    white-space: nowrap;
+  }
+  .desc { font-size: 6.6pt; color: #1d1d1f; }
+  .cols { columns: 2; column-gap: 6mm; }
+  section { break-inside: avoid; }
+  .prefix {
+    display: flex;
+    align-items: center;
+    gap: 4pt;
+    background: #f6f2fc;
+    border-radius: 7pt;
+    padding: 3pt 6pt;
+    font-size: 6.6pt;
+    color: #1d1d1f;
+    margin-bottom: 5pt;
+  }
+  .prefix .chip { color: #6d28d9; }
+  .note {
+    font-size: 6pt;
+    color: #86868b;
+    margin: 1.5pt 0 0;
+  }
+  footer {
+    margin-top: 5pt;
+    font-size: 5.8pt;
+    color: #86868b;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>herdr</h1>
+  <div class="sub">Cheat sheet &middot; Terminal multiplexer</div>
+</header>
+
+<div class="prefix"><span class="chip">prefix</span> = <span class="chip">Ctrl-b</span> <span>(default) &mdash; press it, release, then the key below. Capital letter = Shift.</span></div>
+
+<div class="cols">
+
+<section>
+<h2><span class="dot"></span>Essentials</h2>
+<div class="row"><span class="key"><span class="chip">prefix c</span></span><span class="desc">New tab</span></div>
+<div class="row"><span class="key"><span class="chip">prefix v</span></span><span class="desc">Split right (vertical)</span></div>
+<div class="row"><span class="key"><span class="chip">prefix -</span></span><span class="desc">Split down (horizontal)</span></div>
+<div class="row"><span class="key"><span class="chip">prefix h j k l</span></span><span class="desc">Move between panes</span></div>
+<div class="row"><span class="key"><span class="chip">prefix w</span></span><span class="desc">Switch workspaces</span></div>
+<div class="row"><span class="key"><span class="chip">prefix q</span></span><span class="desc">Detach, keep running</span></div>
+</section>
+
+<section>
+<h2><span class="dot"></span>Panes</h2>
+<div class="row"><span class="key"><span class="chip">prefix z</span></span><span class="desc">Zoom / unzoom pane</span></div>
+<div class="row"><span class="key"><span class="chip">prefix x</span></span><span class="desc">Close pane</span></div>
+<div class="row"><span class="key"><span class="chip">prefix H J K L</span></span><span class="desc">Swap pane in direction</span></div>
+<div class="row"><span class="key"><span class="chip">prefix r</span></span><span class="desc">Resize mode</span></div>
+<div class="row"><span class="key"><span class="chip">prefix [</span></span><span class="desc">Copy mode</span></div>
+</section>
+
+<section>
+<h2><span class="dot"></span>Tabs</h2>
+<div class="row"><span class="key"><span class="chip">prefix n</span><span class="sep">/</span><span class="chip">p</span></span><span class="desc">Next / prev tab</span></div>
+<div class="row"><span class="key"><span class="chip">prefix 1-9</span></span><span class="desc">Jump to tab by number</span></div>
+<div class="row"><span class="key"><span class="chip">prefix T</span></span><span class="desc">Rename tab</span></div>
+<div class="row"><span class="key"><span class="chip">prefix X</span></span><span class="desc">Close tab</span></div>
+</section>
+
+<section>
+<h2><span class="dot"></span>Workspaces &amp; Session</h2>
+<div class="row"><span class="key"><span class="chip">prefix N</span></span><span class="desc">New workspace</span></div>
+<div class="row"><span class="key"><span class="chip">prefix W</span></span><span class="desc">Rename workspace</span></div>
+<div class="row"><span class="key"><span class="chip">prefix D</span></span><span class="desc">Close workspace</span></div>
+<div class="row"><span class="key"><span class="chip">prefix g</span></span><span class="desc">Goto picker</span></div>
+<div class="row"><span class="key"><span class="chip">prefix b</span></span><span class="desc">Toggle sidebar</span></div>
+</section>
+
+<section>
+<h2><span class="dot"></span>Copy Mode</h2>
+<div class="row"><span class="key"><span class="chip">prefix [</span></span><span class="desc">Enter copy mode</span></div>
+<div class="row"><span class="key"><span class="chip">h j k l</span></span><span class="desc">Move cursor</span></div>
+<div class="row"><span class="key"><span class="chip">w b e</span></span><span class="desc">Word motions</span></div>
+<div class="row"><span class="key"><span class="chip">{</span><span class="sep">/</span><span class="chip">}</span></span><span class="desc">Paragraph up / down</span></div>
+<div class="row"><span class="key"><span class="chip">^b</span><span class="sep">/</span><span class="chip">^f</span></span><span class="desc">Page up / down (or PgUp/PgDn)</span></div>
+<div class="row"><span class="key"><span class="chip">^u</span><span class="sep">/</span><span class="chip">^d</span></span><span class="desc">Half page up / down</span></div>
+<div class="row"><span class="key"><span class="chip">v</span><span class="sep">/</span><span class="chip">Space</span></span><span class="desc">Start selection</span></div>
+<div class="row"><span class="key"><span class="chip">y</span><span class="sep">/</span><span class="chip">Enter</span></span><span class="desc">Copy selection, exit</span></div>
+<div class="row"><span class="key"><span class="chip">q</span><span class="sep">/</span><span class="chip">Esc</span></span><span class="desc">Exit copy mode</span></div>
+<p class="note">With the default prefix, <b>^b</b> enters prefix mode instead of paging up &mdash; remap the prefix if you page often. Mouse drag-select also works.</p>
+</section>
+
+</div>
+
+<footer>theknickerbocker/references &middot; sheets/herdr &middot; herdr.dev/docs/keyboard</footer>
+
+</body>
+</html>
